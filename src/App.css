@@ -1,38 +1,338 @@
-.App {
+/* ✅🔥 APP BACKGROUND */
+.app {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+/* ✅🔥 CENTER THE LOGO */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+/* ✅🔥 MAKE LOGO BIGGER */
+.logo {
+  height: 150px;
+  transition: transform 0.3s ease;
+}
+
+/* ✅🔥 ADD COOL HOVER EFFECT */
+.logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ✅🔥 NAVIGATION MENU */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff4da6;
+}
+
+/* ✅🔥 SECTION BASE STYLE */
+.section {
   text-align: center;
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ✅🔥 FADE IN WHEN SCROLLED */
+.section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* ✅🔥 ABOUT US SECTION */
+#about {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+/* ✅🔥 ABOUT CARDS */
+.about-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s;
+}
+
+.about-card:hover {
+  transform: scale(1.1);
+}
+
+/* ✅🔥 OUR WORKS SECTION */
+#works {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
+}
+
+/* ✅🔥 IMAGE GALLERY WITHOUT STRETCH */
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ✅🔥 EACH IMAGE BOX */
+.work-item {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ✅🔥 MAKE IMAGE RESPONSIVE */
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+}
+
+/* ✅🔥 ADD COOL IMAGE ZOOM ON HOVER */
+.work-item img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ✅🔥 LOAD MORE BUTTON */
+.load-more {
+  background-color: #ff4da6;
+  color: #fff;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* ✅🔥 BUTTON HOVER EFFECT */
+.load-more:hover {
+  background-color: #ff2663;
+  transform: scale(1.05);
+}
+
+/* ✅🔥 HIDE BUTTON WHEN NO IMAGES */
+.load-more:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+/* ✅🔥 ADD BIG GAP BETWEEN INTERIOR AND EXTERIOR */
+#works h3 {
+  margin-bottom: 30px;
+}
+
+/* ✅🔥 BIG GAP BETWEEN INTERIOR AND EXTERIOR */
+#works h3:nth-of-type(2) {
+  margin-top: 60px;
+}
+
+/* ✅🔥 GAP BELOW LOAD MORE BUTTON */
+.load-more {
+  margin-top: 20px;
+}
+
+/* ✅🔥 FIX THE IMAGE POP-UP IN CENTER LIKE NETFLIX */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+/* ✅🔥 IMAGE POPUP FADE-IN EFFECT */
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ✅🔥 MAKE THE IMAGE CENTER BIGGER */
+.lightbox img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+/* ✅🔥 SCALE IMAGE WHEN HOVERED IN POPUP */
+.lightbox img:hover {
+  transform: scale(1.05);
+}
+
+/* ✅🔥 CONTACT US SECTION */
+#contact {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 150px;
+}
+
+/* ✅🔥 FIX FOOTER AT THE BOTTOM */
+.footer {
+  text-align: center;
+  margin-top: auto;
+  color: #aaa;
+  padding: 30px 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ✅🔥 SMOOTH PAGE SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ✅🔥 ADD BIG GAP BELOW LOAD MORE BUTTON */
+#works .load-more {
+  margin-top: 30px;
+}
+
+/* ✅🔥 RESPONSIVE GALLERY */
+@media (max-width: 768px) {
+  .work-gallery {
+    grid-template-columns: 1fr;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 480px) {
+  .work-item {
+    height: 200px;
+  }
+}
+
+/* ✅🔥 BUTTON STYLES */
+.button {
+  background-color: #eab141;
+  color: #000000;
+  padding: 10px 30px;  /* Reduced padding */
+  border: none;
+  border-radius: 10px;  /* Slightly reduced */
+  font-size: 16px;  /* Slightly smaller text */
+  margin-top: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+
+/* ✅🔥 BUTTON HOVER EFFECT */
+.button:hover {
+  background-color: #3e3268;
+  transform: scale(1.05);
+  color: #fff;
+}
+
+/* ✅🔥 DISABLED BUTTON STYLE */
+.button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+/* ✅🔥 SPECIFIC STYLE FOR LOAD LESS BUTTON */
+.button.load-less {
+  background-color: #ff4d4d;
+  
+}
+
+/* ✅🔥 SHOW LOAD LESS BUTTON WHEN NEEDED */
+.button.load-less.show {
+  display: inline-block;
+}
+
+.contact-icon {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 10px;
+  font-size: 18px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 10px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-icon i {
+  font-size: 24px;
+  color: #fffefe;
+  transition: color 0.3s ease;
+  
 }
 
-@keyframes App-logo-spin {
+.contact-icon:hover i {
+  color: #ff3b6f; /* Pink for Instagram, or any color */
+}
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.engineer-name {
+  font-size: 18px;
+  font-family: 'Cinzel', serif;
+  color: #f8f9fa;
+  letter-spacing: 1px;
+  margin-top: 75px;
+  text-align: center;
+  opacity: 0;  /* Initially hidden */
+  animation: fadeInUp 1.5s ease-out forwards;
+  animation-delay: 0.5s;  /* Delays the appearance */
+}
+
+
+
